@@ -1,0 +1,80 @@
+{
+  "name": "@_linked/rdfs",
+  "displayName": "RDFS (RDF Schema)",
+  "description": "RDF and RDFS vocabularies as ontologies plus the core @linkedShape classes Resource, Class and Property. Renamed from lincd-rdfs.",
+  "version": "1.0.0",
+  "license": "UNLICENSED",
+  "packageManager": "npm@11.19.1",
+  "linkedPackage": true,
+  "type": "module",
+  "author": {
+    "name": "René Verheij",
+    "url": "https://github.com/flyon",
+    "email": "rpwverheij@gmail.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/linked-fw/rdfs.git"
+  },
+  "keywords": [
+    "linked",
+    "linked code",
+    "linked data",
+    "semantic web",
+    "rdf",
+    "rdfs"
+  ],
+  "main": "lib/esm/index.js",
+  "module": "lib/esm/index.js",
+  "types": "index.d.ts",
+  "scripts": {
+    "start": "npm exec linked dev",
+    "build": "rimraf ./lib && npm run build-esm && npm run copy-to-lib",
+    "build-esm": "echo \"compiling ESM\" && rimraf ./lib/esm && tsc -p tsconfig-esm.json",
+    "copy-to-lib": "echo 'copying CSS + JSON assets to lib folder' && copyfiles -u 1 'src/**/*.css' 'src/**/*.json' lib/esm"
+  },
+  "dependencies": {
+    "@_linked/core": "^2.21.0",
+    "@_linked/react": "^1.1.0"
+  },
+  "peerDependencies": {
+    "react": "^18 || ^19"
+  },
+  "devDependencies": {
+    "@_linked/cli": "^1.19.0",
+    "@changesets/changelog-github": "^0.5.2",
+    "@changesets/cli": "^2.29.8",
+    "@types/node": "^22.13.14",
+    "@types/react": "^18.0.17",
+    "copyfiles": "^2.4.1",
+    "react": "^18.2",
+    "rimraf": "^5.0.7",
+    "typescript": "^5.7.3",
+    "typescript-plugin-css-modules": "^5.1.0"
+  },
+  "exports": {
+    ".": {
+      "types": "./lib/esm/index.d.ts",
+      "import": "./lib/esm/index.js"
+    },
+    "./data/*.json": "./lib/esm/data/*.json",
+    "./*.js": {
+      "types": "./lib/esm/*.d.ts",
+      "import": "./lib/esm/*.js"
+    },
+    "./*": {
+      "types": "./lib/esm/*.d.ts",
+      "import": "./lib/esm/*.js"
+    }
+  },
+  "typesVersions": {
+    "*": {
+      "*": [
+        "lib/esm/*"
+      ]
+    }
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
