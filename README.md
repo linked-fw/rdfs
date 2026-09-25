@@ -26,6 +26,27 @@ import { Resource, Property } from '@_linked/rdfs/shapes';
 import { rdfs } from '@_linked/rdfs/ontologies/rdfs';
 ```
 
+## Development: do not run `npm install` in this directory
+
+`packages/rdfs` is a member of Create Now's **yarn** workspace. Installing with
+npm here writes a nested `node_modules/@_linked/core` instead of letting the
+package resolve to the workspace copy via the hoisted symlink — and two copies
+of `@_linked/core` means **two distinct `Shape` classes**. Nothing crashes;
+the symptom is a type error in a *consumer*, far from the cause. This is what
+`@_linked/owl` hit when it migrated off `lincd-rdfs`:
+
+```
+Type 'typeof Property' is not assignable to type 'typeof Shape'.
+  Type 'Map<string, Set<typeof import(".../packages/rdfs/node_modules/@_linked/core/lib/esm/shapes/Shape").Shape>>'
+    is not assignable to
+    'Map<string, Set<typeof import(".../packages/core/lib/esm/shapes/Shape").Shape>>'.
+```
+
+Run `yarn` from the workspace root instead, and build with `npx linked build`
+from this directory. If a nested `node_modules/@_linked/core` already exists,
+delete it — the shape identity split is silent until something downstream
+fails to compile, or, worse, until two `Shape` registries diverge at runtime.
+
 ## History
 
 Renamed from `lincd-rdfs` and migrated out of the
