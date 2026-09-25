@@ -26,14 +26,31 @@ import { Resource, Property } from '@_linked/rdfs/shapes';
 import { rdfs } from '@_linked/rdfs/ontologies/rdfs';
 ```
 
-## Development: do not run `npm install` in this directory
+## Development
 
-`packages/rdfs` is a member of Create Now's **yarn** workspace. Installing with
-npm here writes a nested `node_modules/@_linked/core` instead of letting the
-package resolve to the workspace copy via the hoisted symlink — and two copies
-of `@_linked/core` means **two distinct `Shape` classes**. Nothing crashes;
-the symptom is a type error in a *consumer*, far from the cause. This is what
-`@_linked/owl` hit when it migrated off `lincd-rdfs`:
+Build with `npx linked build` from this directory. (`yarn linked build` is
+refused by the wrapper and exits 0, so it looks like a successful no-op.)
+
+### A nested `node_modules/@_linked/core` is the thing to watch for
+
+This section used to say "do not run `npm install` in this directory", on the
+grounds that npm here writes a nested `node_modules/@_linked/core` and two
+copies of core mean two distinct `Shape` classes. **The prohibition was wrong,
+and the diagnosis of where the nested copy came from was wrong.** It has been
+measured since: the nested install dated from when this package was built in a
+`staging/` directory *outside* the workspace globs, where it genuinely was a
+standalone package and npm was the right tool. Moving it into `packages/`
+carried that private `node_modules` along with it. The directory has been
+deleted, and `packages/rdfs` now has no `node_modules` of its own — it resolves
+to the single workspace `@_linked/core` through the hoisted symlink.
+
+`package-lock.json` being tracked here is correct and should stay: CI runs
+`npm ci`.
+
+What remains true is the *symptom*, which is worth recognising because it names
+neither npm nor this package. Two copies of `@_linked/core` mean two distinct
+`Shape` classes; nothing crashes, and the error surfaces in a *consumer*. This
+is what `@_linked/owl` hit while it was migrating off `lincd-rdfs`:
 
 ```
 Type 'typeof Property' is not assignable to type 'typeof Shape'.
@@ -42,10 +59,10 @@ Type 'typeof Property' is not assignable to type 'typeof Shape'.
     'Map<string, Set<typeof import(".../packages/core/lib/esm/shapes/Shape").Shape>>'.
 ```
 
-Run `yarn` from the workspace root instead, and build with `npx linked build`
-from this directory. If a nested `node_modules/@_linked/core` already exists,
-delete it — the shape identity split is silent until something downstream
-fails to compile, or, worse, until two `Shape` registries diverge at runtime.
+If you ever see that, check `ls packages/rdfs/node_modules` — the path inside
+the message says which copy is the stray one — and delete the nested tree. The
+split is silent until something downstream fails to compile, or two `Shape`
+registries diverge at runtime.
 
 ## History
 
