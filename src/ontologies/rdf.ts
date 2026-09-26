@@ -1,7 +1,5 @@
 import { Prefix } from '@_linked/core/utils/Prefix';
 import { createNameSpace } from '@_linked/core/utils/NameSpace';
-import { linkedOntology } from '../package.js';
-import * as _this from './rdf.js';
 
 export const loadData = () => {
   //@ts-ignore
@@ -38,5 +36,3 @@ export const rdf = {
   HTML,
   value,
 };
-
-linkedOntology(_this, ns, 'rdf', loadData, '../data/rdf.json');

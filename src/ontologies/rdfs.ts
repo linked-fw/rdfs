@@ -1,9 +1,6 @@
 import { Prefix } from '@_linked/core/utils/Prefix';
 import { createNameSpace } from '@_linked/core/utils/NameSpace';
-import { linkedOntology } from '../package.js';
-import * as _this from './rdfs.js';
 
-const dataFile = '../data/rdfs.json';
 export const loadData = () => {
   //@ts-ignore
   return import('../data/rdfs.json', { with: { type: 'json' } }).then(
@@ -44,5 +41,3 @@ export const rdfs = {
   subPropertyOf,
   subClassOf,
 };
-
-linkedOntology(_this, ns, 'rdfs', loadData, dataFile);
