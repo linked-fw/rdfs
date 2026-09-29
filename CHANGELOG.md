@@ -1,5 +1,11 @@
 # @\_linked/rdfs
 
+## 1.1.2
+
+### Patch Changes
+
+- [#8](https://github.com/linked-fw/rdfs/pull/8) [`0b18101`](https://github.com/linked-fw/rdfs/commit/0b181016ec843c39be330506e905aacc83bb56f9) Thanks [@flyon](https://github.com/flyon)! - Sourcemaps now embed their TypeScript source, so consumers no longer see 'points to missing source files' warnings.
+
 ## 1.1.1
 
 ### Patch Changes
