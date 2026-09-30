@@ -1,5 +1,15 @@
 # @\_linked/rdfs
 
+## 1.1.3
+
+### Patch Changes
+
+- [#18](https://github.com/linked-fw/rdfs/pull/18) [`48c5242`](https://github.com/linked-fw/rdfs/commit/48c5242ea83343a2f2a705a1e6956429ac79d95d) Thanks [@flyon](https://github.com/flyon)! - Add `src/shapes/index.ts`, which registers the package's shapes (`Resource`, `Class`, `Property`)
+  and their ontologies, so an app can load them with `import '@_linked/rdfs/shapes/index'` without
+  pulling in the React components. The package entry now imports it. `linked build` (cli 1.32.0)
+  fails a package that declares shapes but has no `shapes/index`, and CI is switching to
+  `linked build`. `@_linked/rdfs/shapes` still resolves to the shapes module as before.
+
 ## 1.1.2
 
 ### Patch Changes
