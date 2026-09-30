@@ -42,7 +42,7 @@
   },
   "devDependencies": {
     "@_linked/cli": "^1.19.0",
-    "@changesets/changelog-github": "^0.5.2",
+    "@changesets/changelog-github": "^1.0.0",
     "@changesets/cli": "^3.0.0",
     "@types/node": "^22.13.14",
     "@types/react": "^18.0.17",
