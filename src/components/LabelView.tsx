@@ -4,8 +4,8 @@ import { linkedComponent, registerPackageExport } from '../package.js';
 import { Resource } from '../shapes.js';
 
 export const LabelView = linkedComponent(
-  Resource.select((resource) => resource.label) as any,
-  ({ linkedData: [label], source }) => {
+  Resource.select((resource) => resource.label),
+  ({ label, source }) => {
     return (
       <span className={style.LabelView}>
         {label || source.id?.split(/[#,/]/).pop()}
