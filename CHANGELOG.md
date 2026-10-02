@@ -1,5 +1,14 @@
 # @\_linked/rdfs
 
+## 1.1.4
+
+### Patch Changes
+
+- [#23](https://github.com/linked-fw/rdfs/pull/23) [`dbed8cd`](https://github.com/linked-fw/rdfs/commit/dbed8cd05fe1d5ce1e1a125c451f08adbae86aee) Thanks [@flyon](https://github.com/flyon)! - `LabelView` renders again. It read its label from `linkedData[0]`, but only set components
+  receive `linkedData`. A single linked component gets its query result spread onto props, so every
+  render threw `Cannot destructure ... of undefined`. It now reads `label`. Removing the `as any`
+  cast on its query lets that prop be type-checked.
+
 ## 1.1.3
 
 ### Patch Changes
