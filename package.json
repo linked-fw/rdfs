@@ -4,7 +4,7 @@
   "description": "RDF and RDFS vocabularies as ontologies plus the core @linkedShape classes Resource, Class and Property. Renamed from lincd-rdfs.",
   "version": "1.1.4",
   "license": "UNLICENSED",
-  "packageManager": "npm@12.1.0",
+  "packageManager": "npm@12.2.0",
   "linkedPackage": true,
   "type": "module",
   "author": {
