@@ -1,5 +1,11 @@
 # @\_linked/rdfs
 
+## 1.1.5
+
+### Patch Changes
+
+- [#26](https://github.com/linked-fw/rdfs/pull/26) [`d752f0f`](https://github.com/linked-fw/rdfs/commit/d752f0fcb9889be9a19ca74a31984dc11e41c9dd) Thanks [@flyon](https://github.com/flyon)! - Publish only the files consumers need; the tarball no longer includes `.changeset/`, `.gitattributes`, `.github/`, `renovate.json` or tsconfig files.
+
 ## 1.1.4
 
 ### Patch Changes
