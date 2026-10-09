@@ -1,5 +1,11 @@
 # @\_linked/rdfs
 
+## 1.1.6
+
+### Patch Changes
+
+- [#28](https://github.com/linked-fw/rdfs/pull/28) [`1e37be1`](https://github.com/linked-fw/rdfs/commit/1e37be17c702be5a5e29f02858e9dacc0fda5a8a) Thanks [@flyon](https://github.com/flyon)! - Build with `linked build`, the standard build for linked packages. The published `lib/` holds the same files as before; the `rimraf` and `copyfiles` dev dependencies are gone.
+
 ## 1.1.5
 
 ### Patch Changes
