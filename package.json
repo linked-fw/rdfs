@@ -36,8 +36,8 @@
     "build": "linked build"
   },
   "dependencies": {
-    "@_linked/core": "^2.22.8",
-    "@_linked/react": "^1.1.0"
+    "@_linked/core": "^2.27.0",
+    "@_linked/react": "^2.0.0"
   },
   "peerDependencies": {
     "react": "^18 || ^19"
