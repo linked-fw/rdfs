@@ -33,7 +33,8 @@
   "types": "index.d.ts",
   "scripts": {
     "start": "npm exec linked dev",
-    "build": "linked build"
+    "build": "linked build",
+    "test": "node --test test/*.test.mjs"
   },
   "dependencies": {
     "@_linked/core": "^2.27.0",
@@ -57,7 +58,6 @@
       "types": "./lib/esm/index.d.ts",
       "import": "./lib/esm/index.js"
     },
-    "./data/*.json": "./lib/esm/data/*.json",
     "./*.js": {
       "types": "./lib/esm/*.d.ts",
       "import": "./lib/esm/*.js"
