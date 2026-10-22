@@ -1,4 +1,5 @@
 import { Shape } from '@_linked/core/shapes/Shape';
+import { ShapeSet } from '@_linked/core/collections/ShapeSet';
 import {
   createPropertyShape,
   literalProperty,
@@ -26,6 +27,14 @@ export class Resource extends Shape {
   get label(): string {
     return '';
   }
+
+  @literalProperty({
+    path: rdfs.comment,
+    maxCount: 1,
+  })
+  get comment(): string {
+    return '';
+  }
 }
 
 @linkedShape
@@ -38,6 +47,11 @@ export class Class extends Resource {
   })
   get isDefinedBy(): NodeReferenceValue {
     return null;
+  }
+
+  /** The classes this class is a subclass of (`rdfs:subClassOf`), any number of them. */
+  get subClassOf(): ShapeSet<Class> {
+    return new ShapeSet<Class>();
   }
 
   get ontology(): NodeReferenceValue {
@@ -59,16 +73,12 @@ export class Class extends Resource {
 export class Property extends Resource {
   static targetClass = rdf.Property;
 
-  @literalProperty({
-    path: rdfs.comment,
-    maxCount: 1,
-  })
-  get comment(): string {
-    return '';
-  }
-
-  get domain(): Class {
-    return null;
+  /**
+   * The classes the subject of this property is an instance of (`rdfs:domain`). RDFS states no
+   * cardinality and describes the property as "*a* domain of the subject property", so any number.
+   */
+  get domain(): ShapeSet<Class> {
+    return new ShapeSet<Class>();
   }
 
   @objectProperty({
@@ -79,8 +89,14 @@ export class Property extends Resource {
     return null;
   }
 
-  get range(): Class {
-    return null;
+  /** The classes the values of this property are instances of (`rdfs:range`), any number. */
+  get range(): ShapeSet<Class> {
+    return new ShapeSet<Class>();
+  }
+
+  /** The properties this property is a subproperty of (`rdfs:subPropertyOf`), any number. */
+  get subPropertyOf(): ShapeSet<Property> {
+    return new ShapeSet<Property>();
   }
 }
 
@@ -99,7 +115,6 @@ createPropertyShape(
   {
     path: rdfs.domain,
     shape: Class,
-    maxCount: 1,
   },
   'domain',
   shacl.IRI,
@@ -110,9 +125,29 @@ createPropertyShape(
   {
     path: rdfs.range,
     shape: Class,
-    maxCount: 1,
   },
   'range',
+  shacl.IRI,
+  Property
+);
+
+// Self-referencing properties are created after their class exists, like `domain` and `range`.
+createPropertyShape(
+  {
+    path: rdfs.subClassOf,
+    shape: Class,
+  },
+  'subClassOf',
+  shacl.IRI,
+  Class
+);
+
+createPropertyShape(
+  {
+    path: rdfs.subPropertyOf,
+    shape: Property,
+  },
+  'subPropertyOf',
   shacl.IRI,
   Property
 );

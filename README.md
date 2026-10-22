@@ -5,14 +5,21 @@ The RDF and RDF Schema vocabularies as ontologies, plus the core
 
 ## Shapes
 
-- `Resource` — `rdfs:Resource` (`label`, `type`)
-- `Class` — `rdfs:Class` (`isDefinedBy`, `ontology`)
-- `Property` — `rdf:Property` (`comment`, `domain`, `range`, `isDefinedBy`)
+- `Resource` — `rdfs:Resource` (`label`, `comment`, `type`)
+- `Class` — `rdfs:Class` (`isDefinedBy`, `subClassOf` (any number), `ontology`)
+- `Property` — `rdf:Property` (`domain`, `range`, `subPropertyOf` (each any number),
+  `isDefinedBy`)
+
+The package mirrors the RDF and RDFS namespaces: it holds only their terms, and its shapes only
+classes they define. Custom shapes live in a package of their own namespace.
 
 ## Ontologies
 
 - `rdf` — `http://www.w3.org/1999/02/22-rdf-syntax-ns#`
 - `rdfs` — `http://www.w3.org/2000/01/rdf-schema#`
+
+Their data ships as Turtle (`src/data/rdf.ttl`, `src/data/rdfs.ttl`, copied into `lib/esm/data/`
+by the build); each ontology module's `loadData()` reads it on the server.
 
 ## Components
 

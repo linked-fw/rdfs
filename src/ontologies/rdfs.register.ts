@@ -11,7 +11,7 @@
  * From a sibling module the same import is ordinary and survives.
  */
 import * as terms from './rdfs.js';
-import {loadData, ns} from './rdfs.js';
+import {dataFiles, loadData, ns} from './rdfs.js';
 import {linkedOntology} from '../package.js';
 
-linkedOntology(terms, ns, 'rdfs', loadData, '../data/rdfs.json');
+linkedOntology(terms, ns, 'rdfs', loadData, dataFiles);
