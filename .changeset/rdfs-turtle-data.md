@@ -1,5 +1,5 @@
 ---
-'@_linked/rdfs': major
+'@_linked/rdfs': minor
 ---
 
 The ontology data ships as Turtle, the shapes gain RDFS's own hierarchy terms, and `domain` and
