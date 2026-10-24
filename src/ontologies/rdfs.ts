@@ -26,7 +26,7 @@ export const comment = /*#__PURE__*/ ns('comment');
 /** A domain of the subject property. */
 export const domain = /*#__PURE__*/ ns('domain');
 
-/** The defininition of the subject resource. */
+/** The definition of the subject resource. */
 export const isDefinedBy = /*#__PURE__*/ ns('isDefinedBy');
 
 /** A human-readable name for the subject. */

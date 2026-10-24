@@ -8,8 +8,14 @@ export const Alt = /*#__PURE__*/ ns('Alt');
 /** The class of unordered containers. */
 export const Bag = /*#__PURE__*/ ns('Bag');
 
+/** A class representing a compound literal. */
+export const CompoundLiteral = /*#__PURE__*/ ns('CompoundLiteral');
+
 /** The datatype of RDF literals storing fragments of HTML content */
 export const HTML = /*#__PURE__*/ ns('HTML');
+
+/** The datatype of RDF literals storing JSON content. */
+export const JSON = /*#__PURE__*/ ns('JSON');
 
 /** The class of RDF Lists. */
 export const List = /*#__PURE__*/ ns('List');
@@ -29,11 +35,17 @@ export const Statement = /*#__PURE__*/ ns('Statement');
 /** The datatype of XML literal values. */
 export const XMLLiteral = /*#__PURE__*/ ns('XMLLiteral');
 
+/** The base direction component of a CompoundLiteral. */
+export const direction = /*#__PURE__*/ ns('direction');
+
 /** The first item in the subject RDF list. */
 export const first = /*#__PURE__*/ ns('first');
 
 /** The datatype of language-tagged string values */
 export const langString = /*#__PURE__*/ ns('langString');
+
+/** The language component of a CompoundLiteral. */
+export const language = /*#__PURE__*/ ns('language');
 
 /** The empty list, with no items in it. */
 export const nil = /*#__PURE__*/ ns('nil');
