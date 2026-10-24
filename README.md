@@ -18,11 +18,36 @@ classes they define. Custom shapes live in a package of their own namespace.
 - `rdf` — `http://www.w3.org/1999/02/22-rdf-syntax-ns#`
 - `rdfs` — `http://www.w3.org/2000/01/rdf-schema#`
 
-Their data ships as Turtle (`src/data/rdf.ttl`, `src/data/rdfs.ttl`, copied into `lib/esm/data/`
-by the build). `linked generate-ontology` writes the accessor modules from it (`package.json`
-`"linkedOntologies"`): `ontologies/<prefix>.ts` holds one named export per term, and
-`ontologies/<prefix>.data.ts` holds `ns`, `dataFiles`, `_ontologyResource` and `loadData()`, which reads the data on
-the server.
+## The data
+
+Each ontology's data is the latest official release of its standard, as the W3C publishes it at
+the namespace, unchanged apart from a leading comment that names the source:
+
+| File | Source | Version |
+|---|---|---|
+| `src/data/rdf.ttl` | <https://www.w3.org/1999/02/22-rdf-syntax-ns> (Turtle) | `dc:date "2019-12-16"` (RDF 1.1 Concepts, with JSON-LD 1.1's `rdf:JSON`, `rdf:CompoundLiteral`, `rdf:language`, `rdf:direction`) |
+| `src/data/rdfs.ttl` | <https://www.w3.org/2000/01/rdf-schema> (Turtle) | Last-Modified 2024-12-18 |
+
+To refresh, download each with `curl -sSL -H 'Accept: text/turtle' <source>`, keep the comment,
+and run `npx linked generate-ontology`.
+
+The official files are the only source of the package's terms: the package never adds a class
+or property to a standard's namespace. What the published standard lacks, mainly metadata, goes
+in one extra file per prefix, `src/data/<prefix>-added.ttl`, listed in `"linkedOntologies"`' data:
+
+- the ontology entity itself: `owl:Ontology`, title, description,
+  `vann:preferredNamespacePrefix`, `vann:preferredNamespaceUri`, the source URL and version;
+- annotations on terms the standard already defines, such as a missing `rdfs:label`.
+
+New classes or properties never go there; a term a standard lacks belongs in the consumer's own
+ontology package.
+
+Both files here carry their own ontology header, so this package has no `-added` file.
+
+The build copies the data into `lib/esm/data/`. `linked generate-ontology` writes the accessor
+modules from it (`package.json` `"linkedOntologies"`): `ontologies/<prefix>.ts` holds one named
+export per term, and `ontologies/<prefix>.data.ts` holds `ns`, `dataFiles`, `_ontologyResource`
+and `loadData()`, which reads the data on the server.
 
 ## Components
 
