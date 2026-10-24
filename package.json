@@ -37,14 +37,14 @@
     "test": "node --test test/*.test.mjs"
   },
   "dependencies": {
-    "@_linked/core": "^2.37.2",
+    "@_linked/core": "^2.39.1",
     "@_linked/react": "^2.0.0"
   },
   "peerDependencies": {
     "react": "^18 || ^19"
   },
   "devDependencies": {
-    "@_linked/cli": "^1.54.0",
+    "@_linked/cli": "^1.56.0",
     "@changesets/changelog-github": "^1.0.0",
     "@changesets/cli": "^3.0.0",
     "@types/node": "^24.0.0",
