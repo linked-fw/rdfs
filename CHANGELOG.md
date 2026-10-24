@@ -1,5 +1,28 @@
 # @\_linked/rdfs
 
+## 1.4.0
+
+### Minor Changes
+
+- [#38](https://github.com/linked-fw/rdfs/pull/38) [`96a5ade`](https://github.com/linked-fw/rdfs/commit/96a5aded7834c7629ba8ce59806bbac57b8e8ed4) Thanks [@flyon](https://github.com/flyon)! - The `rdf` and `rdfs` accessor modules are generated from `src/data/rdf.ttl` and
+  `src/data/rdfs.ttl` by `linked generate-ontology` (`package.json` `"linkedOntologies"`), and
+  `linked build` fails when they are stale. `ontologies/rdf` exports 18 terms (up from 9) and
+  `ontologies/rdfs` 15 (up from 12), one named export each.
+  
+  Breaking changes:
+  
+  - The aggregated `rdf` and `rdfs` objects are gone. Import each module as a namespace:
+  
+    ```ts
+    import * as rdfs from '@_linked/rdfs/ontologies/rdfs';
+    @literalProperty({path: rdfs.label}) get label(): string {…}
+    ```
+  
+  - `ns`, `dataFiles`, `loadData` and `_ontologyResource` moved to `ontologies/rdf.data` and
+    `ontologies/rdfs.data`; `import * as rdf` no longer reaches them, and each registered ontology
+    carries only its terms.
+  - No terms were renamed.
+
 ## 1.3.1
 
 ### Patch Changes
