@@ -1,5 +1,11 @@
 # @\_linked/rdfs
 
+## 1.3.1
+
+### Patch Changes
+
+- [#36](https://github.com/linked-fw/rdfs/pull/36) [`48f7e6c`](https://github.com/linked-fw/rdfs/commit/48f7e6c958bf435eeba95b8ce6780b5ec87cb2af) Thanks [@flyon](https://github.com/flyon)! - Ships `lib/esm/data/shapes.ttl`; core range raised.
+
 ## 1.3.0
 
 ### Minor Changes
