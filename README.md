@@ -21,7 +21,7 @@ classes they define. Custom shapes live in a package of their own namespace.
 Their data ships as Turtle (`src/data/rdf.ttl`, `src/data/rdfs.ttl`, copied into `lib/esm/data/`
 by the build). `linked generate-ontology` writes the accessor modules from it (`package.json`
 `"linkedOntologies"`): `ontologies/<prefix>.ts` holds one named export per term, and
-`ontologies/<prefix>.data.ts` holds `ns`, `dataFiles` and `loadData()`, which reads the data on
+`ontologies/<prefix>.data.ts` holds `ns`, `dataFiles`, `_ontologyResource` and `loadData()`, which reads the data on
 the server.
 
 ## Components
