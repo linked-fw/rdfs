@@ -19,7 +19,10 @@ classes they define. Custom shapes live in a package of their own namespace.
 - `rdfs` — `http://www.w3.org/2000/01/rdf-schema#`
 
 Their data ships as Turtle (`src/data/rdf.ttl`, `src/data/rdfs.ttl`, copied into `lib/esm/data/`
-by the build); each ontology module's `loadData()` reads it on the server.
+by the build). `linked generate-ontology` writes the accessor modules from it (`package.json`
+`"linkedOntologies"`): `ontologies/<prefix>.ts` holds one named export per term, and
+`ontologies/<prefix>.data.ts` holds `ns`, `dataFiles`, `_ontologyResource` and `loadData()`, which reads the data on
+the server.
 
 ## Components
 
@@ -30,7 +33,9 @@ by the build); each ontology module's `loadData()` reads it on the server.
 
 ```ts
 import { Resource, Property } from '@_linked/rdfs/shapes';
-import { rdfs } from '@_linked/rdfs/ontologies/rdfs';
+import * as rdfs from '@_linked/rdfs/ontologies/rdfs';
+
+rdfs.label; // {id: 'http://www.w3.org/2000/01/rdf-schema#label'}
 ```
 
 ## Development

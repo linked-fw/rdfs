@@ -9,8 +9,8 @@ import { shacl } from '@_linked/core/ontologies/shacl';
 import type { NodeReferenceValue } from '@_linked/core/utils/NodeReference';
 import { Prefix } from '@_linked/core/utils/Prefix';
 import { linkedShape } from './package.js';
-import { rdf } from './ontologies/rdf.js';
-import { rdfs } from './ontologies/rdfs.js';
+import * as rdf from './ontologies/rdf.js';
+import * as rdfs from './ontologies/rdfs.js';
 
 @linkedShape
 export class Resource extends Shape {

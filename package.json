@@ -10,6 +10,14 @@
   ],
   "packageManager": "npm@12.2.0",
   "linkedPackage": true,
+  "linkedOntologies": {
+    "rdf": {
+      "namespace": "http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    },
+    "rdfs": {
+      "namespace": "http://www.w3.org/2000/01/rdf-schema#"
+    }
+  },
   "type": "module",
   "author": {
     "name": "René Verheij",
@@ -37,14 +45,14 @@
     "test": "node --test test/*.test.mjs"
   },
   "dependencies": {
-    "@_linked/core": "^2.39.1",
+    "@_linked/core": "^2.41.0",
     "@_linked/react": "^2.0.0"
   },
   "peerDependencies": {
     "react": "^18 || ^19"
   },
   "devDependencies": {
-    "@_linked/cli": "^1.56.0",
+    "@_linked/cli": "^1.57.0",
     "@changesets/changelog-github": "^1.0.0",
     "@changesets/cli": "^3.0.0",
     "@types/node": "^24.0.0",
