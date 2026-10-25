@@ -110,3 +110,7 @@ The source is unchanged apart from the registry name passed to
 `linkedPackage()`, which also changes the shape IRI slug from
 `lincd-rdfs` to `rdfs` (`https://linked.cm/shape/rdfs/Resource`),
 matching every other `@_linked/*` vocabulary package.
+
+## Data license
+
+The package code is MIT licensed (see `LICENSE`). The bundled ontology data is derived from the W3C RDF and RDF Schema specifications and is not covered by the MIT license: it remains under the W3C Software and Document License, https://www.w3.org/copyright/software-license-2023/. See `NOTICE`.
