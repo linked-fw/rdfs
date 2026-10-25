@@ -2,7 +2,7 @@
   "name": "@_linked/rdfs",
   "displayName": "RDFS (RDF Schema)",
   "description": "RDF and RDFS vocabularies as ontologies plus the core @linkedShape classes Resource, Class and Property. Renamed from lincd-rdfs.",
-  "version": "1.5.1",
+  "version": "1.5.2",
   "license": "MIT AND W3C-20150513",
   "files": [
     "lib",
