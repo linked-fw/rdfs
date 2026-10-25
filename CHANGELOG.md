@@ -1,5 +1,11 @@
 # @\_linked/rdfs
 
+## 1.5.1
+
+### Patch Changes
+
+- [#42](https://github.com/linked-fw/rdfs/pull/42) [`d5d380b`](https://github.com/linked-fw/rdfs/commit/d5d380b12b8175c67c56489cf68c7d9ba92a776b) Thanks [@flyon](https://github.com/flyon)! - license: MIT; data license noted
+
 ## 1.5.0
 
 ### Minor Changes
