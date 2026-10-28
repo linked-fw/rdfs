@@ -1,5 +1,11 @@
 # @\_linked/rdfs
 
+## 1.5.3
+
+### Patch Changes
+
+- [#49](https://github.com/linked-fw/rdfs/pull/49) [`e851040`](https://github.com/linked-fw/rdfs/commit/e85104067dacbc286346d0e744d7ab6fe7017853) Thanks [@flyon](https://github.com/flyon)! - `package.json` says what this package is in `"linked": {"kind": "ontology"}` instead of `"linkedPackage": true`, which the CLI and server no longer read.
+
 ## 1.5.2
 
 ### Patch Changes
