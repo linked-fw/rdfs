@@ -8,6 +8,7 @@ import {
 import { shacl } from '@_linked/core/ontologies/shacl';
 import type { NodeReferenceValue } from '@_linked/core/utils/NodeReference';
 import { Prefix } from '@_linked/core/utils/Prefix';
+import { graphs } from '@_linked/core/ontologies/graphs';
 import { linkedShape } from './package.js';
 import * as rdf from './ontologies/rdf.js';
 import * as rdfs from './ontologies/rdfs.js';
@@ -40,6 +41,8 @@ export class Resource extends Shape {
 @linkedShape
 export class Class extends Resource {
   static targetClass = rdfs.Class;
+  /** Terms live in the ontology graphs: a read without `.from()` reads every one of them. */
+  static defaultReadGraphs: string | readonly string[] = graphs.allOntologies;
 
   @objectProperty({
     path: rdfs.isDefinedBy,
@@ -72,6 +75,8 @@ export class Class extends Resource {
 @linkedShape
 export class Property extends Resource {
   static targetClass = rdf.Property;
+  /** Terms live in the ontology graphs: a read without `.from()` reads every one of them. */
+  static defaultReadGraphs: string | readonly string[] = graphs.allOntologies;
 
   /**
    * The classes the subject of this property is an instance of (`rdfs:domain`). RDFS states no
