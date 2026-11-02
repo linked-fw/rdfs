@@ -1,5 +1,14 @@
 # @\_linked/rdfs
 
+## 1.6.0
+
+### Minor Changes
+
+- [#51](https://github.com/linked-fw/rdfs/pull/51) [`094a2f6`](https://github.com/linked-fw/rdfs/commit/094a2f6007396c522221b0311c01dc92da475a45) Thanks [@flyon](https://github.com/flyon)! - `Class` and `Property` declare `static defaultReadGraphs = graphs.allOntologies`: with
+  a `@_linked/core` that reads `defaultReadGraphs` (its next minor), a select, count or ask of them (and of OWL's term shapes, which
+  extend them) without `.from()` reads every ontology graph the registry lists. `Resource` declares
+  none. An explicit `.from()` wins. Older core ignores the static.
+
 ## 1.5.3
 
 ### Patch Changes
