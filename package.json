@@ -49,7 +49,7 @@
     "test": "node --test test/*.test.mjs"
   },
   "dependencies": {
-    "@_linked/core": "^2.41.0",
+    "@_linked/core": "^2.46.0",
     "@_linked/react": "^2.0.0"
   },
   "peerDependencies": {
