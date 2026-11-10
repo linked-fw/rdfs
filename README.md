@@ -43,7 +43,9 @@ in one extra file per prefix, `src/data/<prefix>-added.ttl`, listed in `"linkedO
 New classes or properties never go there; a term a standard lacks belongs in the consumer's own
 ontology package.
 
-Both files here carry their own ontology header, so this package has no `-added` file.
+Both files here carry their own ontology header but no suggested prefix, so `src/data/rdf-added.ttl`
+and `src/data/rdfs-added.ttl` add `vann:preferredNamespacePrefix` (`"rdf"`, `"rdfs"`) and
+`vann:preferredNamespaceUri` to them.
 
 The build copies the data into `lib/esm/data/`. `linked generate-ontology` writes the accessor
 modules from it (`package.json` `"linkedOntologies"`): `ontologies/<prefix>.ts` holds one named

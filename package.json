@@ -16,10 +16,18 @@
   },
   "linkedOntologies": {
     "rdf": {
-      "namespace": "http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+      "namespace": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+      "data": [
+        "rdf.ttl",
+        "rdf-added.ttl"
+      ]
     },
     "rdfs": {
-      "namespace": "http://www.w3.org/2000/01/rdf-schema#"
+      "namespace": "http://www.w3.org/2000/01/rdf-schema#",
+      "data": [
+        "rdfs.ttl",
+        "rdfs-added.ttl"
+      ]
     }
   },
   "type": "module",
