@@ -57,6 +57,12 @@ export class Class extends Resource {
     return new ShapeSet<Class>();
   }
 
+  /**
+   * The ontology this class belongs to: its `rdfs:isDefinedBy`, else the namespace in the
+   * app's prefix map (the map in use, loaded with `Prefix.load`) its IRI starts with, else null.
+   * No package registers a prefix, so the fallback finds only namespaces the app's map lists. To
+   * match against another map, call `Prefix.findMatch(cls.id, map)`.
+   */
   get ontology(): NodeReferenceValue {
     if (this.isDefinedBy) {
       return this.isDefinedBy;

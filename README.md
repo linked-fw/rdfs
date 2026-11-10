@@ -48,9 +48,10 @@ and `src/data/rdfs-added.ttl` add `vann:preferredNamespacePrefix` (`"rdf"`, `"rd
 `vann:preferredNamespaceUri` to them.
 
 The build copies the data into `lib/esm/data/`. `linked generate-ontology` writes the accessor
-modules from it (`package.json` `"linkedOntologies"`): `ontologies/<prefix>.ts` holds one named
-export per term, and `ontologies/<prefix>.data.ts` holds `ns`, `dataFiles`, `_ontologyResource`
-and `loadData()`, which reads the data on the server.
+modules from it (`package.json` `"linkedOntologies"`): `ontologies/rdf.ts` and `ontologies/rdfs.ts`
+hold one named export per term, an `{id}` with the term's full IRI, and `ontologies/index.ts`
+registers both with their data (read on the server only) and suggested prefixes. The package
+registers no prefix: an app lists the prefixes it uses in its own prefix map.
 
 ## Components
 

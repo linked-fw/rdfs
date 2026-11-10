@@ -1,6 +1,5 @@
 import './types.js';
-import './ontologies/rdf.register.js';
-import './ontologies/rdfs.register.js';
+import './ontologies/index.js';
 import './shapes/index.js';
 
 import './components/LabelView.js';
