@@ -2,7 +2,7 @@
   "name": "@_linked/rdfs",
   "displayName": "RDFS (RDF Schema)",
   "description": "RDF and RDFS vocabularies as ontologies plus the core @linkedShape classes Resource, Class and Property. Renamed from lincd-rdfs.",
-  "version": "1.6.0",
+  "version": "2.0.0",
   "license": "MIT AND W3C-20150513",
   "files": [
     "lib",
@@ -57,8 +57,8 @@
     "test": "node --test test/*.test.mjs"
   },
   "dependencies": {
-    "@_linked/core": "^2.46.0",
-    "@_linked/react": "^2.0.0"
+    "@_linked/core": "^3.0.0",
+    "@_linked/react": "^3.0.0"
   },
   "peerDependencies": {
     "react": "^18 || ^19"
