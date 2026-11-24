@@ -1,5 +1,15 @@
 # @\_linked/rdfs
 
+## 2.0.0
+
+### Major Changes
+
+- [#61](https://github.com/linked-fw/rdfs/pull/61) [`33cc389`](https://github.com/linked-fw/rdfs/commit/33cc389a72fcbd74862f96d7064a6230bf55d82f) Thanks [@flyon](https://github.com/flyon)! - Ontology modules in the one-index layout, and no prefix registered. `ontologies/rdf`, `ontologies/rdfs` hold only the terms, each an `{id}` with its full IRI. `ontologies/index` registers every ontology of the package with core's `registerOntologies` (data and suggested prefix); the package entry and `shapes/index` import it. Removed: the `ontologies/<name>.data` and `ontologies/<name>.register` modules (`ns`, `dataFiles`, `loadData`, `_ontologyResource`) and `linkedOntology` from `package` (now `registerOntologies`). The package no longer adds a prefix: an app lists the prefixes it uses in its own prefix map. For a namespace function use `createNameSpace(namespace)` from `@_linked/core/utils/NameSpace`; for the data, the registration from `getRegisteredOntologies()`. `Class.ontology`, without `rdfs:isDefinedBy`, falls back to a namespace of the app's prefix map. Namespaces, term names and term IRIs are unchanged. Requires the core release with `registerOntologies`.
+
+### Patch Changes
+
+- [#61](https://github.com/linked-fw/rdfs/pull/61) [`7825f13`](https://github.com/linked-fw/rdfs/commit/7825f131158b15410b4cef14bf566a144dbe589f) Thanks [@flyon](https://github.com/flyon)! - The ontology data carries its suggested prefix (rdf, rdfs) as `vann:preferredNamespacePrefix` and `vann:preferredNamespaceUri` in an added data file, as `linked build` now requires; modules regenerated. Prefixes and terms unchanged.
+
 ## 1.6.0
 
 ### Minor Changes
