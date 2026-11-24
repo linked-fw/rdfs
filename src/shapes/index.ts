@@ -10,6 +10,5 @@
  * The shapes still live in `src/shapes.ts`, which consumers import as
  * `@_linked/rdfs/shapes`; moving them into this folder would break that path.
  */
-import '../ontologies/rdf.register.js';
-import '../ontologies/rdfs.register.js';
+import '../ontologies/index.js';
 import '../shapes.js';
